@@ -2,6 +2,7 @@
 
 . mov 
 mov R0 R1 ; where R0 is opérandicible (copy stock) and R1 opérandesource (copy value)
+\
 . jmp : aller à l'adresse
 . cmp : compare variables
 . syscall

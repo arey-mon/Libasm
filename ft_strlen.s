@@ -7,12 +7,12 @@ section .text
 
 ft_strlen : 
 mov rax, 0 ;
-cmp rdi, 0 ;
+;cmp rdi, 0 ;
 je exit ;
 
 count :
-cmp BYTE [rax + rdi], 0 ;	cmp actual char and '\0'
-je exit ;			setting exit value to '0' (je = 0 value)
+cmp BYTE [RDI + RAX], 0 ;	cmp actual char and '\0'
+je exit ;
 inc rax ; 			
 jmp count
 

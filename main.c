@@ -15,12 +15,10 @@ static void	check_strlen(void)
 	char	s5[] = "0123456789012345678901234567890123456789012345678901234567890123456789";
 	
 	printf(GREEN "ft_strlen :"RESET"\n");
-	/*
 	printf("	len : %zu\n", strlen(s1));
 	printf("	flen : %zu\n", ft_strlen(s1));
 	printf("	len : %zu\n", strlen(s2));
 	printf("	flen : %zu\n", ft_strlen(s2));
-	*/
 	printf("	len : %zu\n", strlen(s3));
 	printf("	flen : %zu\n", ft_strlen(s3));
 	printf("	len : %zu\n", strlen(s4));
@@ -32,7 +30,6 @@ static void	check_strlen(void)
 	printf("	flen : %zu\n", ft_strlen(NULL));
 }
 
-/*
 void	check_strcpy(void)
 {
 	char	buf[12] = {0};
@@ -130,6 +127,7 @@ void	check_strcmp(void)
 	printf("	fcmp : %i\n", ft_strcmp(s1, s0));
 }
 
+/*
 void	check_write(void)
 {
 	int	fd;
@@ -638,9 +636,9 @@ void	check_strdup(void)
 int	main(void)
 {
 	check_strlen();
-	/*
 	check_strcpy();
 	check_strcmp();
+	/*
 	check_write();
 	check_read();
 	check_strdup();

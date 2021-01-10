@@ -21,23 +21,24 @@ returns 0 if success, -1 if error
 \
 . pop : récupère le contenu de la pile et le stocke dans le registre
 \
-. cl : used with mov to only affect 8 bits (one char)
+. cl || al : used with mov to only affect 8 bits
+\
+. sub :
+Subtracts source operand from destination operand and stores the result in the destination operand
 \
 
 # REGISTRES
-[EAX] || [RAX] sont les registres généraux. EAX = 32 bits, RAX = 64 bits
+[EAX] || [RAX] sont des registres généraux. EAX = 32 bits, RAX = 64 bits
 \
-[RAX] : registre général, celui que l'on incrémente en premier dans la norme
+[RAX] : registre général temporaire, 1er registre de ret
 \
-[RBX] : registre général
+[RBX] : registre général enregistré, utilisé en option comme pointeur
 \
-[RSI] : adresse source
+[RSI] : adresse source, utilisé pour passer un 2è argument à une fonction
 \
-[RDI] : adresse de destination.
+[RDI] : adresse de destination, utilisée pour passer le 1er argument
 \
 Les registres sont des espaces mémoires dans le coeur du processeur
-\
-[EAX] should contain return value
 
 # COMPILE COMMANDS
 declare in your .s global function_name;
@@ -48,3 +49,16 @@ make
 \
 gcc *.c *.h *.a
 \
+
+# DEBUG
+gdb <exe>
+\
+break main
+\
+run
+\ more : https://www.csee.umbc.edu/portal/help/nasm/nasm.shtml#gdb
+
+# TEST CODE ONLINE
+\
+https://www.tutorialspoint.com/compile_assembly_online.php
+

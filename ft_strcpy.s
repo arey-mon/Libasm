@@ -1,31 +1,31 @@
-; ----------------------------------------------------------------------------------------
-;       char  *ft_strcpy(char *dest, const char *src);
-; ----------------------------------------------------------------------------------------
+;	char	ft_*strcpy(char *dest, const char *src);
+;				RDI		RSI	
+global ft_strcpy
 
-global ft_strcpy ;		declaring function
 section .text
 
-ft_strcpy : 
-push rbx ;			setting registrer to add values to
-mov rbx, 0 ;			
-cmp rsi, 0 ;			check for src '\0'
-je  error
+ft_strcpy :
+push RBX
+mov RBX, 0 ; will be needed for dest['\0]
+cmp RSI, 0 ; if src has no \0, return err
+je error
 
-copy :
-cmp BYTE [RSI + RBX], 0 ;	is RSI[RBX] == '\0'
-mov cl, [RSI + RBX];		copy 8bits of RSI[RBX] to cl
-mov [RDI + RBX], cl ;		copy cl in dest RDI[RBX]
-je exit	; 			exit if string = 0
-inc RBX ;			increase RAX
-jmp copy ;			looping function
+cpy :
+cmp BYTE [RSI + RBX], 0
+mov dl, [RSI + RBX] ; cp RSI[RBX] to dl (8 byt counter register)
+mov [RDI + RBX], dl ; cp dl to RDI[RBX]
+je exit
+inc RBX
+jmp cpy
 
 error :
-mov RAX, 0 ;
-pop RBX ;			prevent SEGV if NULL
+mov RAX, 0
+pop RBX ;	prevents SEGV if NULL
+mov RAX, RBX 
 ret
 
-exit : 
-mov RAX, 0 ;			RAX stocks data
-mov RAX, RDI ;			mov RDI at RAX[0]
-pop RBX ;
+exit :
+mov RAX, 0 ;	search for RAX '\0'
+pop RBX
+mov RAX, RDI ; once copy is done, mov dest into RAX  
 ret

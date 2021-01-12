@@ -5,39 +5,33 @@ section .text
 
 ft_strcmp :
 push RBX
-;mov RAX, 0
+mov RBX, 0
 cmp RDI, 0 ;
 je error 
 cmp RSI, 0 ;
 je error 
 
 cmp :
-;mov RCX, 0
-;mov RDX, 0
-;mov al, 0
-;je exit
-;mov bl, 0
-;je exit
-mov al, [RDI + RBX] ;	
-mov bl, [RSI + RBX] ;
-cmp al, bl
-je exit ;
-cmp bl, 0
+mov RCX, 0
+mov RDX, 0
+mov cl, [RDI + RBX] ;	
+mov dl, [RSI + RBX] ;
+cmp cl, 0
 je exit
-cmp al, 0
+cmp dl, 0
 je exit ;
+cmp cl, dl
+jne exit ;
 inc RBX
 jmp cmp
 
 error :
 mov RAX, 0 ;
-mov al, 0  ;
-mov bl, 0  ;
 pop RBX
 ret
 
 exit :
-;sub RCX, RDX
-;mov RAX, RCX 
+sub RCX, RDX
+mov RAX, RCX 
 pop rbx
 ret

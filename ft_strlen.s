@@ -1,20 +1,20 @@
-; ----------------------------------------------------------------------------------------
-;       size_t  ft_strlen(const char *s);
-; ----------------------------------------------------------------------------------------
+; size_t	ft_strlen(const char *s);
 
-global ft_strlen ;		declaring function
+global ft_strlen
 section .text
 
-ft_strlen : 
-mov rax, 0 ;
-;cmp rdi, 0 ;
-je exit ;
+ft_strlen :
+mov RAX, 0
+je exit ;	case of  NULL
+; we could also use cmp RDI, 0 ; je exit
 
-count :
-cmp BYTE [RDI + RAX], 0 ;	cmp actual char and '\0'
-je exit ;
-inc rax ; 			
+count : 
+cmp BYTE [RDI + RAX], 0
+je exit
+inc RAX ;
 jmp count
 
 exit : 
 ret
+
+

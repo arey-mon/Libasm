@@ -11,13 +11,15 @@ mov R0 R1 ; where R0 is opérandicible (copy stock) and R1 opérandesource (copy
 back up and check errors
 returns 0 if success, -1 if error
 \
-. je : is setting variable = 0
+JE adr: saut à l’adresse adr si la dernière comparaison a donné une égalité
 \
-. ret : quitte la procédure en cours
+JNE adr: saut à l’adresse adr si la dernière comparaison a donné une inégalité
+\
+. ret : quitte la procédure en cours and returns address located at top of the stack
 \
 . inc || dec : increase || decrease
 \
-. push : indiquer une valeur ou une opérande qui sera ajoutée à la pile
+. push : indiquer une valeur ou une opérande qui sera ajoutée à la pile (top of the stack)
 \
 . pop : récupère le contenu de la pile et le stocke dans le registre
 \

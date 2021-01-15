@@ -1,5 +1,7 @@
 #include "libasm.h"
+#include <errno.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <fcntl.h>
 #define GREEN "\x1b[32m"
@@ -371,10 +373,10 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	errno = 0;
 	printf("		|wr : %zd\n", ft_write(1, buf, 4));
-	printf("		%i : %s\n", errno, strerror(errno));
+	printf("	unistd.unistd.hh	%i : %s\n", errno, strerror(errno));
 	printf("\n");
 }
-
+*/
 void	check_read(void)
 {
 	int	fd;
@@ -600,7 +602,6 @@ void	check_read(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 }
-*/
 
 void	check_strdup(void)
 {
@@ -640,8 +641,8 @@ int	main(void)
 	check_strcmp();
 	/*
 	check_write();
-	check_read();
 	*/
+	check_read();
 	check_strdup();
 	return (0);
 }

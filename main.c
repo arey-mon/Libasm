@@ -129,7 +129,6 @@ void	check_strcmp(void)
 	printf("	fcmp : %i\n", ft_strcmp(s1, s0));
 }
 
-/*
 void	check_write(void)
 {
 	int	fd;
@@ -145,6 +144,7 @@ void	check_write(void)
 	printf(YELLOW"	str = \"abc\""RESET"\n");
 	str = "abc";
 	// 9 : Bad file descriptor (RDONLY)
+	printf(" TEST 1\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(fd2, str, 2));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -154,6 +154,7 @@ void	check_write(void)
 	printf("\n");
 
 	// 9 : Bad file descriptor (RANDOM)
+	printf(" TEST 2\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(4, str, 3));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -163,6 +164,7 @@ void	check_write(void)
 	printf("\n");
 
 	// 14 : Bad address
+	printf(" TEST 3\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(fd, str, -1));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -172,6 +174,7 @@ void	check_write(void)
 	printf("\n");
 
 	// 0 : Write on file
+	printf(" TEST 4\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(fd, str, 3));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -180,6 +183,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 
+	printf(" TEST 5\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, 1));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -188,6 +192,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 
+	printf(" TEST 6\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, 3));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -196,6 +201,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 
+	printf(" TEST 7\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, 4));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -204,6 +210,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 
+	printf(" TEST 8\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, 5));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -212,6 +219,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 
+	printf(" TEST 9\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(4, str, 5));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -220,6 +228,7 @@ void	check_write(void)
 	printf("		%i : %s\n", errno, strerror(errno));
 	printf("\n");
 
+	printf(" TEST 10\n");
 	errno = 0;
 	printf("		|wr : %zd\n", write(1, str, -1));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -376,7 +385,8 @@ void	check_write(void)
 	printf("	unistd.unistd.hh	%i : %s\n", errno, strerror(errno));
 	printf("\n");
 }
-*/
+
+/*
 void	check_read(void)
 {
 	int	fd;
@@ -417,6 +427,7 @@ void	check_read(void)
 
 
 	// Read stdin
+	printf("Write some text from stdin\n");
 	errno = 0;
 	printf("		|rd : %zd\n", read(1, &str, 25));
 	printf("		%i : %s\n", errno, strerror(errno));
@@ -633,16 +644,17 @@ void	check_strdup(void)
 	printf("	fdup : %s\n", ft_strdup(s5));
 	printf("\n");
 }
+*/
 
 int	main(void)
 {
 	check_strlen();
 	check_strcpy();
 	check_strcmp();
-	/*
 	check_write();
-	*/
+	/*
 	check_read();
 	check_strdup();
+	*/
 	return (0);
 }

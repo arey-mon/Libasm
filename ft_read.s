@@ -13,7 +13,10 @@ cmp RAX, 0
 jl error
 ret
 
-error : 
+error :
+neg RAX 
+mov R8, RAX
 call __errno_location
+mov qword [RAX], R8
 mov RAX, -1
 ret

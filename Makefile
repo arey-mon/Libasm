@@ -10,25 +10,18 @@ SRC =	ft_strlen.s \
 	ft_read.s \
 	ft_write.s
 
-OBJ = $(SRC:.s=.o)
-OBJDIR = objs/
+OBJ =	$(SRC:.s=.o)
 
 %.o: %.s
 	$(ASM) $(AFLAGS) $< -o $@
 
-OPTION = -I .
-
 all: $(NAME)
 
-$(NAME): $(SRC) $(OBJ)
-	mkdir -p $(OBJDIR)
+$(NAME): $(OBJ) $(LIB)
 	ar rcs $(NAME) $(OBJ)
-	mv *.o $(OBJDIR)
-
 clean:
 	rm -f $(OBJ)
-	rm -rf $(OBJDIR)
-
+	
 fclean: clean
 	rm -f $(NAME)
 

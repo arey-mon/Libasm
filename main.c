@@ -1,5 +1,6 @@
 #include "libasm.h"
 #include <errno.h>
+#include <error.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -386,7 +387,6 @@ void	check_write(void)
 	printf("\n");
 }
 
-/*
 void	check_read(void)
 {
 	int	fd;
@@ -644,7 +644,6 @@ void	check_strdup(void)
 	printf("	fdup : %s\n", ft_strdup(s5));
 	printf("\n");
 }
-*/
 
 int	main(void)
 {
@@ -652,9 +651,7 @@ int	main(void)
 	check_strcpy();
 	check_strcmp();
 	check_write();
-	/*
 	check_read();
 	check_strdup();
-	*/
 	return (0);
 }
